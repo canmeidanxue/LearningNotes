@@ -562,3 +562,518 @@ if (uri.getScheme() != null && uri.getScheme().startsWith("file")) {
         mContext.startActivityForResult(intent, Constant.IMG_ZOOM);
         return imgPath;
     }
+    ===================================================================================================================
+    <table>标签的属性设置
+带边框的表格：
+<table border=1 >
+<tr><th>Food</th><th>Drink</th><th>Sweet</th> 
+<tr><td>A</td><td>B</td><td>C</td> 
+</table>
+
+Food    Drink   Sweet
+A   B   C
+不带边框的表格：
+<table> <tr><th>Food</th><th>Drink</th><th>Sweet</th> <tr><td>A</td><td>B</td><td>C</td> </table>
+
+Food    Drink   Sweet
+A   B   C
+边框尺寸设置： <table border=#> #=边框粗度
+
+<table border=10>
+            <tr><th>Food</th><th>Drink</th><th>Sweet</th>
+            <tr><td>A</td><td>B</td><td>C</td>
+            </table>
+Food    Drink   Sweet
+A   B   C
+<table border width=# height=#>width：宽度，height：高度,#＝象素
+设置表格宽度和高度：
+<table border width=170 height=100> <tr><th>Food</th><th>Drink</th><th>Sweet</th> <tr><td>A</td><td>B</td><td>C</td> </table>
+
+Food    Drink   Sweet
+A   B   C
+<table border cellspacing=#> #=象素
+
+表元间隙设置：
+<table border cellspacing=10> <tr><th>Food</th><th>Drink</th><th>Sweet</th> <tr><td>A</td><td>B</td><td>C</td> </table>
+
+Food    Drink   Sweet
+A   B   C
+<table border cellpadding=#> #=象素 
+表元内部空白设置：
+<table border cellpadding=10> <tr><th>Food</th><th>Drink</th><th>Sweet</th> <tr><td>A</td><td>B</td><td>C</td> </table>
+
+Food    Drink   Sweet
+A   B   C
+<table align=#> #=left,right,center
+
+设置表格在网页中的布局位置：
+            <table align="left" border>
+            <tr><th>Food</th><th>Drink</th><th>Sweet</th>
+            <tr><td>A</td><td>B</td><td>C</td>
+            </table>
+            My favorites...<br>
+            cookies, chocolates, and more.
+ 
+Food    Drink   Sweet
+A   B   C My favorites...
+cookies, chocolates, and more.
+表格的标题
+<caption > 标题内容</caption> 
+align=left,right,center valign=bottom,top
+
+<table border>
+            <caption align=center>Lunch</caption>
+            <tr><th>Food</th><th>Drink</th><th>Sweet</th>
+            <tr><td>A</td><td>B</td><td>C</td>
+            </table>
+Lunch
+Food    Drink   Sweet
+A   B   C
+表格边框的色彩 
+<table bordercolor=#>
+
+<table cellspacing=5 border=5 bodercolor=#ffaa00>
+            <tr><th>Food</th><th>Drink</th><th>Sweet</th>
+            <tr><td>A</td><td>B</td><td>C</td>
+            </table>
+Food    Drink   Sweet
+A   B   C
+表格边框色彩的亮度控制 
+<table bordercolorlight=#>
+<table bordercolordark=#>
+
+<table 
+cellspacing=5 border=5
+            bordercolorlight=blue bordercolordark=Maroon>
+            <tr><th>Food</th><th>Drink</th><th>Sweet</th>
+            <tr><td>A</td><td>B</td><td>C</td>
+            </table>
+Food    Drink   Sweet
+A   B   C
+
+一、表格中单元格之间分隔线的隐藏方法
+
+第   一   行
+第   二   行
+第   三   行   这个表格去掉了单元格之间的横向分隔线(rules=cols)
+
+第   第   第
+一   二   三
+列   列   列   这个表格去掉了单元格之间的纵向分隔线(rules=rows)
+横       线
+竖       线
+都   没   了   这个表格去掉了单元格之间的纵向分隔线和横向分隔线(rules=none)
+　　其实上面的三个表格都有三行三列，隐藏分隔线的诀窍在于rules，察看这三个表格的源代码，我们可以看到<TABLE>标签中都有rules。 它有三个参数(cols,rows,none)，当rules=cols时，表格会隐藏纵向的分隔线，这样我们就只能看到表格的行；当rules=rows时，则 隐藏了横向的分隔线，这样我们只能看到表格的列；而当rules=none时，纵向分隔线和横向分隔线将全部隐藏。
+
+二、表格边框的隐藏
+
+普   表
+通   格   这是一普通的表格
+
+不怕  下雨
+        只显示上边框(frame=above)
+ 
+下起雨来    该怎么办    只显示下边框(frame=below)
+
+上不着天     
+    下不着地    只显示左、右边框(frame=vsides)
+两边走开
+老子姓王        只显示上、下边框( frame=hsides)
+
+左右   
+为难      只显示左边框( frame=lhs)
+左右
+    为难  只显示右边框(frame=rhs)
+
+光秃秃  
+    全脱了 不显示任何边框(frame=void)
+表格边框的显示与隐藏，是可以用frame参数来控制的。请注意它只控制表格的边框图，而不影晌单元格。
+只显示上边框 <table frame=above>
+只显示下边框 <table frame=below> 
+只显示左、右边框 <table frame=vsides>
+只显示上、下边框 <table frame=hsides>
+只显示左边框 <table frame=lhs>
+只显示右边框 <table frame=rhs>
+不显示任何边框 <table frame=void>
+三、表格边框
+
+普   表
+通   格
+这是一普通的表格
+
+<table border="1" width="200" cellpadding="0" cellspacing="0"> <tr align="center"> <td>普</td> <td>表</td> </tr> <tr align="center"> <td>通</td> <td>格</td> </tr> </table>
+细   表
+线   格
+表格加上了漂亮的细线
+(利用cellspacing1像素间隙和表格与单元格背景的不同)
+
+<table border="0" width="200" cellspacing="1" cellpadding="0" bgcolor="#000000" > <tr align="center" bgcolor="#FFFFFF"> <td bgcolor="#FFFFFF">细</td> <td bgcolor="#FFFFFF">表</td> </tr> <tr align="center" bgcolor="#FFFFFF"> <td bgcolor="#FFFFFF">线</td> <td bgcolor="#FFFFFF">格</td> </tr> </table>
+细   表
+线   格
+这和上面那个可不一样，它用的是CSS，效果却一样。
+(对单元格border的定义)
+
+<table width="200" cellspacing="0" cellpadding="0"> <tr align="center"> <td style="BORDER-top: rgb(0,0,0) 1px groove; BORDER-bottom: rgb(0,0,0) 1px groove; BORDER-left: rgb(0,0,0) 1px groove; BORDER-right: rgb(0,0,0) 1px groove">细</td> <td style="BORDER-top: rgb(0,0,0) 1px groove; BORDER-bottom: rgb(0,0,0) 1px groove; BORDER-right: rgb(0,0,0) 1px groove">表</td> </tr> <tr align="center"> <td style="BORDER-bottom: rgb(0,0,0) 1px groove; BORDER-left: rgb(0,0,0) 1px groove; BORDER-right: rgb(0,0,0) 1px groove">线</td> <td style="BORDER-bottom: rgb(0,0,0) 1px groove; BORDER-right: rgb(0,0,0) 1px groove">格</td> </tr> </table>
+细   表
+线   格
+再进一步，把边框变成虚线，同样是CSS的神奇作用。
+
+<table width="200" cellspacing="0" cellpadding="0"> <tr align="center"> <td style="BORDER-top: rgb(0,0,0) 1px dotted; BORDER-bottom: rgb(0,0,0) 1px dotted; BORDER-left: rgb(0,0,0) 1px dotted; BORDER-right: rgb(0,0,0) 1px dotted">细</td> <td style="BORDER-top: rgb(0,0,0) 1px dotted; BORDER-bottom: rgb(0,0,0) 1px dotted; BORDER-right: rgb(0,0,0) 1px dotted">表</td> </tr> <td style="BORDER-bottom: rgb(0,0,0) 1px dotted; BORDER-left: rgb(0,0,0) 1px dotted; BORDER-right: rgb(0,0,0) 1px dotted">线</td> <td style="BORDER-bottom: rgb(0,0,0) 1px dotted; BORDER-right: rgb(0,0,0) 1px dotted">格</td> </tr> </table>
+1   
+2
+3   
+4 细线表格的扩展应用，奥妙就是在第个单元格中再套入一个表格。 <table width="200" border="0" cellspacing="2" cellpadding="0"> <tr> <td> <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#000000"> <tr> <td bgcolor="#FFFFFF"> </td> </tr> </table> </td> <td> <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#000000"> <tr> <td bgcolor="#FFFFFF"> </td> </tr> </table> </td> </tr> <tr> <td> <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#000000"> <tr> <td bgcolor="#FFFFFF"> </td> </tr> </table> </td> <td> <table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="#000000"> <tr> <td bgcolor="#FFFFFF"> </td> </tr> </table> </td> </tr> </table>
+立   表
+体   格
+立体感的表格
+(简单的亮暗边框设置，注意只有IE支持这种效果)
+
+<table border="1" bordercolorlight="#ffffff" bordercolordark="#ffffff" width="200" cellpadding="0" cellspacing="0"> <tr align="center"> <td bgcolor="#B7B7B7" bordercolorlight="#000000" bordercolordark="#eeeeee" >立</td> <td bgcolor="#B7B7B7" bordercolorlight="#000000" bordercolordark="#eeeeee" >表</td> </tr> <tr align="center"> <td bgcolor="#B7B7B7" bordercolorlight="#000000" bordercolordark="#eeeeee" >体</td> <td bgcolor="#B7B7B7" bordercolorlight="#000000" bordercolordark="#eeeeee" >格</td> </tr> </table>
+无名表格 给表格加上一个表头
+(应用<fieldset>和</legend>标签)  <table width="200" cellpadding="0" cellspacing="0"> <tr> <td><fieldset style="width:200" align="center"> <legend> 无名表格 </legend> <p align="right"> </fieldset></td> </tr> </table>
+表中表效果Ⅰ 给表头再加个框
+(用CSS为<legnd>定义一个边框)    <table width="200"" cellspacing="0" cellpadding="0"> <tr> <td> <fieldset style="width: 200; color: #B7B7B7; border-style: groove" align="center"> <legend style="color: blue; border: 1 solid #000000"> 表中表效果Ⅰ</legend> <br> </fieldset> </td> </tr> </table>
+表中表效果Ⅱ
+看起来和上面的一样，可是这个才是真正的表中表哦。
+(在<legnd>中插入一个表格)   <table width="200"> <tr> <td><fieldset style="width:200" align="center"> <legend> <table style="border: 1 solid #000000" width="80" cellspacing="1" cellpadding="0" height="20"> <tr> <td><font color=blue>表中表效果Ⅱ</font></td> </tr> </table> </legend><br> </fieldset> </td> </tr> </table>
+四、表格单元格的背景色和添加背景图片
+
+第一  行
+第二  行
+<html>
+<body>
+
+<h4>单元格背景色：</h4>
+<table border="1">
+<tr>
+<td bgcolor="red">第一</td>
+<td>行</td>
+</tr>
+<tr>
+<td background="../images/html_tutorials/background.gif">第二</td>
+<td>行</td>
+</tr>
+</table>
+
+</body>
+</html>
+
+五、多行多列的表格
+
+1.跨多列的表 <td colspan=#>
+<table border=1><tr><td colspan=3>标题</td><tr><td>第一列</td>       <td>第二列</td>  <td>第三列</td><tr><td>A</td><td>B</td><td>C</td></table>
+标题
+第一列 第二列 第三列
+A   B   C
+2.跨多行的表 <td rowspan=#>
+<table border=1><tr><td rowspan=3>标题</td><td>第一行</td> <td>A</td></tr><tr><td>第二行</td> <td>B</td></tr><tr><td>第三行</td> <td>C</td></tr></table>
+标题  第一行 A
+第二行 B
+第三行 C
+六、一行里包含多行的表格
+
+
+这是一段
+
+这是另外一段。
+
+这个单元格里包含了一个表格：
+A   B
+C   D
+这个单元格里包含了一个图片： 
+HELLO
+<html>
+<body>
+
+<table border="1">
+<tr>
+<td>
+<p>这是一段</p>
+<p>这是另外一段。</p>
+</td>
+<td>这个单元格里包含了一个表格：
+<table border="1">
+<tr>
+<td>A</td>
+<td>B</td>
+</tr>
+<tr>
+<td>C</td>
+<td>D</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>这个单元格里包含了一个图片：
+<img src = http://hiphotos.baidu.com/%C6%F3%B6%EC%D2%A7%B9%C7%CD%B7/pic/item/7a44bcda8ddc7823d0164e93.jpg">
+</td>
+<td>HELLO</td>
+</tr>
+</table>
+
+</body>
+</html>
+
+___________________________________________________________________________
+
+    average red
+eyes
+height  weight
+males   1.9 0.003   40%
+females 1.7 0.002   43%
+<table border="1" summary="this table gives some statistics about fruit
+　　 flies: average height and weight, and percentage
+　　　　 with red eyes (for both males and females).">
+ <caption>
+  <em>a test table with merged ce lls</em></caption>
+ <tbody>
+  <tr>
+   <th rowspan="2">
+    &nbsp;</th>
+   <th colspan="2">
+    average</th>
+   <th rowspan="2">
+    red<br />
+    eyes</th>
+  </tr>
+  <tr>
+   <th>
+    height</th>
+   <th>
+    weight</th>
+  </tr>
+  <tr>
+   <th>
+    males</th>
+   <td>
+    1.9</td>
+   <td>
+    0.003</td>
+   <td>
+    40%</td>
+  </tr>
+  <tr>
+   <th>
+    females</th>
+   <td>
+    1.7</td>
+   <td>
+    0.002</td>
+   <td>
+    43%</td>
+  </tr>
+ </tbody>
+</table>
+<p>
+第1行第1列  第1行第2列
+第2行第1列  第2行第2列
+第3行第1列  第3行第2列
+<table width="300" border="1"  bordercolor="#000000">
+  <tr>
+    <td>第1行第1列</td>
+    <td>第1行第2列</td>
+  </tr>
+  <tr>
+    <td>第2行第1列</td>
+    <td>第2行第2列</td>
+  </tr>
+  <tr>
+    <td>第3行第1列</td>
+    <td>第3行第2列</td>
+  </tr>
+</table>
+
+  -----------------------------------------------------------------
+
+第1行第1列
+第1行第2列
+第1行第3列
+第1行第4列
+第2行第1列
+第2行第2列
+第2行第3列
+第2行第4列
+第3行第1列
+第3行第2列
+第3行第3列
+第3行第4列
+第4行第1列
+第4行第2列
+第4行第3列
+第4行第4列
+第5行第1列
+第5行第2列
+第5行第3列
+第5行第4列
+ 
+
+代码：
+
+<p align="center">表格名称表格名称</p>
+<table width="600" border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#000000">
+  <tr>
+    <td><div align="center">第1行第1列</div></td>
+    <td><div align="center">第1行第2列</div></td>
+    <td><div align="center">第1行第3列</div></td>
+    <td><div align="center">第1行第4列</div></td>
+  </tr>
+  <tr>
+    <td><div align="center">第2行第1列</div></td>
+    <td><div align="center">第2行第2列</div></td>
+    <td><div align="center">第2行第3列</div></td>
+    <td><div align="center">第2行第4列</div></td>
+  </tr>
+  <tr>
+    <td><div align="center">第3行第1列</div></td>
+    <td><div align="center">第3行第2列</div></td>
+    <td><div align="center">第3行第3列</div></td>
+    <td><div align="center">第3行第4列</div></td>
+  </tr>
+  <tr>
+    <td><div align="center">第4行第1列</div></td>
+    <td><div align="center">第4行第2列</div></td>
+    <td><div align="center">第4行第3列</div></td>
+    <td><div align="center">第4行第4列</div></td>
+  </tr>
+  <tr>
+    <td><div align="center">第5行第1列</div></td>
+    <td><div align="center">第5行第2列</div></td>
+    <td><div align="center">第5行第3列</div></td>
+    <td><div align="center">第5行第4列</div></td>
+  </tr>
+</table>
+
+---------------------------------------------------------------------------
+
+第1行第1列
+第1行第2列
+第1行第3列
+第1行第4列
+第2行第1列
+第2行第2列
+第2行第3列
+第2行第4列
+第3行第1列
+第3行第2列
+第3行第3列
+第3行第4列
+第4行第1列
+第4行第2列
+第4行第3列
+第4行第4列
+第5行第1列
+第5行第2列
+第5行第3列
+第5行第4列
+ 
+
+代码：
+
+<p align="center">表格名称表格名称</p>
+<table width="600" border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#FF0000" bgcolor="#ECF5FF">
+  <tr>
+    <td><div align="center">第1行第1列</div></td>
+    <td><div align="center">第1行第2列</div></td>
+    <td><div align="center">第1行第3列</div></td>
+    <td><div align="center">第1行第4列</div></td>
+  </tr>
+  <tr>
+    <td><div align="center">第2行第1列</div></td>
+    <td><div align="center">第2行第2列</div></td>
+    <td><div align="center">第2行第3列</div></td>
+    <td><div align="center">第2行第4列</div></td>
+  </tr>
+  <tr>
+    <td><div align="center">第3行第1列</div></td>
+    <td><div align="center">第3行第2列</div></td>
+    <td><div align="center">第3行第3列</div></td>
+    <td><div align="center">第3行第4列</div></td>
+  </tr>
+  <tr>
+    <td><div align="center">第4行第1列</div></td>
+    <td><div align="center">第4行第2列</div></td>
+    <td><div align="center">第4行第3列</div></td>
+    <td><div align="center">第4行第4列</div></td>
+  </tr>
+  <tr>
+    <td><div align="center">第5行第1列</div></td>
+    <td><div align="center">第5行第2列</div></td>
+    <td><div align="center">第5行第3列</div></td>
+    <td><div align="center">第5行第4列</div></td>
+  </tr>
+</table>
+
+---------------------------------------------------------
+
+第1行第1列
+第1行第2列
+第1行第3列
+第1行第4列
+第2行第1列
+第2行第2列
+第2行第3列
+第2行第4列
+第3行第1列
+第3行第2列
+第3行第3列
+第3行第4列
+第4行第1列
+第4行第2列
+第4行第3列
+第4行第4列
+第5行第1列
+第5行第2列
+第5行第3列
+第5行第4列
+ 
+
+代码：
+
+<p align="center">表格名称表格名称</p>
+<table width="600" border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#FF0000">
+  <tr>
+    <td bgcolor="#FFFFFF"><div align="center">第1行第1列</div></td>
+    <td bgcolor="#FFFFFF"><div align="center">第1行第2列</div></td>
+    <td bgcolor="#FFFFFF"><div align="center">第1行第3列</div></td>
+    <td bgcolor="#FFFFFF"><div align="center">第1行第4列</div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF"><div align="center">第2行第1列</div></td>
+    <td bgcolor="#FFFFFF"><div align="center">第2行第2列</div></td>
+    <td bgcolor="#FFFFFF"><div align="center">第2行第3列</div></td>
+    <td bgcolor="#FFFFFF"><div align="center">第2行第4列</div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF"><div align="center">第3行第1列</div></td>
+    <td bgcolor="#FFFFFF"><div align="center">第3行第2列</div></td>
+    <td bgcolor="#FFFFFF"><div align="center">第3行第3列</div></td>
+    <td bgcolor="#FFFFFF"><div align="center">第3行第4列</div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF"><div align="center">第4行第1列</div></td>
+    <td bgcolor="#FFFFFF"><div align="center">第4行第2列</div></td>
+    <td bgcolor="#FFFFFF"><div align="center">第4行第3列</div></td>
+    <td bgcolor="#FFFFFF"><div align="center">第4行第4列</div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF"><div align="center">第5行第1列</div></td>
+    <td bgcolor="#FFFFFF"><div align="center">第5行第2列</div></td>
+    <td bgcolor="#FFFFFF"><div align="center">第5行第3列</div></td>
+    <td bgcolor="#FFFFFF"><div align="center">第5行第4列</div></td>
+  </tr>
+</table>
+
+ 
+
+------------------------------------------------------------------------------
+
+  
+
+新博进阶    圈子应读
+网络安防    免费网盘
+全球搜搜    语录名言
+相声小品    影音视听
+诗社文坛    时尚健身
+智测良品    乱作一团
+ 
